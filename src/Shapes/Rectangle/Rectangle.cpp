@@ -2,6 +2,20 @@
 
 #include "../../constants.h"
 
+// Constructor
+Rectangle::Rectangle(int x, int y, int h, int w, uint32_t color)
+    : height(h), width(w), color(color) {
+    setX(x);
+    setY(y);
+}
+
+Rectangle::Rectangle(int x, int y, int z, int h, int w, uint32_t color)
+    : height(h), width(w), color(color) {
+    setX(x);
+    setY(y);
+    set3dCoods(x, y, z);
+}
+
 int Rectangle::getX(void) const { return this->x; }
 int Rectangle::getY(void) const { return this->y; }
 float Rectangle::getXNorm(void) const { return this->xNorm; }
@@ -61,18 +75,4 @@ void Rectangle::yToNormalized(void) {
 void Rectangle::set3dCoods(float newX, float newY, float newZ) {
     setXNorm(newX / newZ);
     setYNorm(newY / newZ);
-}
-
-// Constructor
-Rectangle::Rectangle(int x, int y, int h, int w, uint32_t color)
-    : height(h), width(w), color(color) {
-    setX(x);
-    setY(y);
-}
-
-Rectangle::Rectangle(int x, int y, int z, int h, int w, uint32_t color)
-    : height(h), width(w), color(color) {
-    setX(x);
-    setY(y);
-    this->set3dCoods(x, y, z);
 }

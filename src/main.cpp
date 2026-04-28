@@ -30,15 +30,9 @@ int main(int argc, char* argv[]) {
 
     // 3. Define the Rectangle
     Rectangle r1(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r2(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r3(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r4(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r5(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r6(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r7(0, 0, 0, 10, 10, 0xFF00FF00);
-    Rectangle r8(0, 0, 0, 10, 10, 0xFF00FF00);
+    Point p1(0, 0, 0);
 
-    float dz = 0.5;
+    float step = 0.5;
     // --- Main Loop ---
     bool running = true;
     SDL_Event event;
@@ -46,7 +40,7 @@ int main(int argc, char* argv[]) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = false;
         }
-        dz += 0.005f;
+        step += 0.005f;
 
         // Clear Screen
         frame.clear();
@@ -54,26 +48,16 @@ int main(int argc, char* argv[]) {
         // TODO: Continue the render of the moving cube
 
         // Motion Logic
-        r1.set3dCoods(0.5f, 0.5f, dz);
-        r2.set3dCoods(-0.5f, 0.5f, dz);
-        r3.set3dCoods(0.5f, -0.5f, dz);
-        r4.set3dCoods(-0.5f, -0.5f, dz);
-
-        // r5.set3dCoods(0.5f, 0.5f, dz * (-1));
-        // r6.set3dCoods(-0.5f, 0.5f, dz * (-1));
-        // r7.set3dCoods(0.5f, -0.5f, dz * (-1));
-        // r8.set3dCoods(-0.5f, -0.5f, dz * (-1));
+        r1.set3dCoods(0.5f, 0.5f, step);
 
         // Draw on screen the points
         frame.drawRectangle(r1);
-        frame.drawRectangle(r2);
-        frame.drawRectangle(r3);
-        frame.drawRectangle(r4);
-        // frame.drawRectangle(r5);
-        // frame.drawRectangle(r6);
-        // frame.drawRectangle(r7);
-        // frame.drawRectangle(r8);
+        frame.drawPoint(p1);
 
+        std::cout << "r1.getX() = " << r1.getX() << std::endl;
+        std::cout << "r1.getY() = " << r1.getY() << std::endl;
+        std::cout << "r1.getXNorm() = " << r1.getXNorm() << std::endl;
+        std::cout << "r1.getYNorm() = " << r1.getYNorm() << std::endl;
         // Push our memory buffer to the GPU to be displayed
         SDL_UpdateTexture(texture, NULL, frame.buffer.data(),
                           WINDOW_WIDTH * sizeof(uint32_t));

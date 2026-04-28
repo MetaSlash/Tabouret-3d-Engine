@@ -8,10 +8,15 @@ void Canvas::drawRectangle(Rectangle& r) {
             int drawX = r.getX() + col;
             int drawY = r.getY() + row;
             if (drawX >= 0 && drawX < cWidth && drawY >= 0 && drawY < cHeight) {
+                // Core Mecanic
                 buffer[drawY * cWidth + drawX] = r.getColor();
             }
         }
     }
+}
+
+void Canvas::drawPoint(Point& p) {
+    buffer[p.getX() * cWidth + p.getY()] = p.getColor();
 }
 
 void Canvas::clear(void) { std::fill(buffer.begin(), buffer.end(), cColor); }

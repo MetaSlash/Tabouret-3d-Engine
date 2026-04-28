@@ -15,8 +15,10 @@ class Canvas {
     // Constructor
     Canvas(int w, int h, uint32_t c);
 
-    // Methods
+    // Draw Methods
     void drawRectangle(Rectangle& r);
+    void drawPoint(Point& r);
+
     void clear(void);
 };
 
