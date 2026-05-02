@@ -16,7 +16,9 @@ class Line {
     Line(Point p1, Point p2, uint32_t color);
 
     uint32_t getColor();
+    Point* getPoints();
 
-    Point* getPoints(void);
+    void setP1(Point p);
+    void setP2(Point p);
 };
 #endif  // LINE_H

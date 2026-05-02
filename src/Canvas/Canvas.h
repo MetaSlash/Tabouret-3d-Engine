@@ -17,8 +17,12 @@ class Canvas {
 
     // Draw Methods
     void drawRectangle(Rectangle r);
+
     void drawPoint(Point p);
+
     void drawLine(Line l);
+
+    void drawTriangle(Triangle t);
 
     bool isCoordsValid(int px, int py);
 
