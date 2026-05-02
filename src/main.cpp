@@ -29,10 +29,10 @@ int main(int argc, char* argv[]) {
     Canvas frame(WINDOW_WIDTH, WINDOW_HEIGHT, 0xFF000000);
 
     // 3. Define the Rectangle
-    Rectangle r1(0, 0, 0, 10, 10, 0xFF00FF00);
-    Point p1(0, 0, 0);
+    // Rectangle r1(0, 10, 1, 10, 10, 0xFF00FF00);
+    Point p1(0, 10, 0, 0xFF00FF00);
 
-    float step = 0.5;
+    float step = 1;
     // --- Main Loop ---
     bool running = true;
     SDL_Event event;
@@ -40,24 +40,19 @@ int main(int argc, char* argv[]) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = false;
         }
-        step += 0.005f;
+        // step += 1.0f;
 
         // Clear Screen
         frame.clear();
 
-        // TODO: Continue the render of the moving cube
+        // Motion logic
+        p1.setWorldZ(p1.getWorldZ() + step);
+        std::cout << p1.getWorldZ() << std::endl;
 
-        // Motion Logic
-        r1.set3dCoods(0.5f, 0.5f, step);
-
-        // Draw on screen the points
-        frame.drawRectangle(r1);
+        // Drawing Part
         frame.drawPoint(p1);
+        // frame.drawPoint(p1);
 
-        std::cout << "r1.getX() = " << r1.getX() << std::endl;
-        std::cout << "r1.getY() = " << r1.getY() << std::endl;
-        std::cout << "r1.getXNorm() = " << r1.getXNorm() << std::endl;
-        std::cout << "r1.getYNorm() = " << r1.getYNorm() << std::endl;
         // Push our memory buffer to the GPU to be displayed
         SDL_UpdateTexture(texture, NULL, frame.buffer.data(),
                           WINDOW_WIDTH * sizeof(uint32_t));

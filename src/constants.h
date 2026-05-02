@@ -4,6 +4,6 @@
 #define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 400
 
-#define FPS 2
+#define FPS 5
 
 #endif  // CONSTANT_H

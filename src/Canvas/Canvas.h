@@ -17,7 +17,9 @@ class Canvas {
 
     // Draw Methods
     void drawRectangle(Rectangle& r);
-    void drawPoint(Point& r);
+    void drawPoint(Point& p);
+
+    bool isCoordsValid(Point& p);
 
     void clear(void);
 };

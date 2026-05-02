@@ -11,6 +11,7 @@ add_executable(renderer
     src/Shapes/Rectangle/Rectangle.cpp
     src/Canvas/Canvas.cpp
     src/Shapes/Point/Point.cpp
+    src/Shapes/Triangle/Triangle.cpp
 
 )
 
