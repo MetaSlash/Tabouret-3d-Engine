@@ -8,10 +8,12 @@ find_package(SDL2 REQUIRED)
 # Include both .cpp files
 add_executable(renderer 
     src/main.cpp
-    src/Shapes/Rectangle/Rectangle.cpp
+
     src/Canvas/Canvas.cpp
+    src/Shapes/Rectangle/Rectangle.cpp
     src/Shapes/Point/Point.cpp
     src/Shapes/Triangle/Triangle.cpp
+    src/Shapes/Line/Line.cpp
 
 )
 

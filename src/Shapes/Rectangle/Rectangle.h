@@ -1,10 +1,10 @@
+#include <cstdint>
+
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include <cstdint>
-
 class Rectangle {
-   private:
+  private:
     // Member variables
     int x, y;
     float xNorm, yNorm;
@@ -17,7 +17,7 @@ class Rectangle {
     void xToNormalized(void);
     void yToNormalized(void);
 
-   public:
+  public:
     // Constructors
     Rectangle(int x, int y, int h, int w, uint32_t color);
     Rectangle(int x, int y, int z, int h, int w, uint32_t color);

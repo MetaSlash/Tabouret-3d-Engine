@@ -1,11 +1,10 @@
+#include <cstdint>
 
 #ifndef POINT_H
 #define POINT_H
 
-#include <cstdint>
-
 class Point {
-   private:
+  private:
     // Member variables
     double worldX, worldY, worldZ;
     double xNorm, yNorm;
@@ -14,8 +13,10 @@ class Point {
 
     void update3dCoods(void);
 
-   public:
+  public:
     // Constructors
+    Point();
+    Point(double newScreenX, double newScreenY);
     Point(double x, double y, double z);
     Point(double x, double y, double z, uint32_t color);
 

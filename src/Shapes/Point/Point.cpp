@@ -3,6 +3,28 @@
 #include "../../constants.h"
 
 // Constructor
+Point::Point() {
+    color = 0xFFFFFFFF;
+
+    worldX = 0;
+    worldY = 0;
+    worldZ = 0;
+    update3dCoods();
+}
+
+// DO NOT USE IN NORMAL CODE
+Point::Point(double newScreenX, double newScreenY) {
+    screenX = newScreenX;
+    screenY = newScreenY;
+
+    this->color = 0xFFFFFFFF;
+    worldX = 0;
+    worldY = 0;
+    worldZ = 0;
+    xNorm = 0;
+    yNorm = 0;
+}
+
 Point::Point(double x, double y, double z) {
     this->color = 0xFFFFFFFF;
 
@@ -53,9 +75,6 @@ void Point::update3dCoods() {
 
     xNorm = worldX / worldZ;
     yNorm = worldY / worldZ;
-
-    screenX = static_cast<int>((xNorm + 1.0) / 2.0 * WINDOW_WIDTH);
-    screenY = static_cast<int>((1.0 - (yNorm + 1.0) / 2.0) * WINDOW_HEIGHT);
 
     screenX = static_cast<int>((xNorm + 1.0) / 2.0 * WINDOW_WIDTH);
     screenY = static_cast<int>((1 - (yNorm + 1.0) / 2.0) * WINDOW_HEIGHT);

@@ -1,7 +1,6 @@
 # Variables
 BUILD_DIR = build
 BINARY = ./$(BUILD_DIR)/renderer
-
 # Default target
 all: build
 
@@ -10,6 +9,7 @@ build:
 	@echo "--- Building Renderer ---"
 	@mkdir -p $(BUILD_DIR)
 	@cd $(BUILD_DIR) && cmake .. && make
+
 
 # Build and Run
 run: build

@@ -6,7 +6,7 @@
 #include "../Shapes/Shapes.h"
 
 class Canvas {
-   public:
+  public:
     std::vector<uint32_t> buffer;
     int cWidth;
     int cHeight;
@@ -16,10 +16,11 @@ class Canvas {
     Canvas(int w, int h, uint32_t c);
 
     // Draw Methods
-    void drawRectangle(Rectangle& r);
-    void drawPoint(Point& p);
+    void drawRectangle(Rectangle r);
+    void drawPoint(Point p);
+    void drawLine(Line l);
 
-    bool isCoordsValid(Point& p);
+    bool isCoordsValid(int px, int py);
 
     void clear(void);
 };
