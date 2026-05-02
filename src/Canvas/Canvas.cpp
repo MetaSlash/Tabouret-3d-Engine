@@ -94,6 +94,17 @@ void Canvas::drawTriangle(Triangle t) {
     drawLine(Line(t.getPoints()[2], t.getPoints()[0], t.getColor()));
 }
 
+void Canvas::drawTriangle(Triangle t, uint32_t color) {
+    drawLine(Line(t.getPoints()[0], t.getPoints()[1], color));
+    drawLine(Line(t.getPoints()[1], t.getPoints()[2], color));
+    drawLine(Line(t.getPoints()[2], t.getPoints()[0], color));
+}
+
+void Canvas::drawSquare(Square s) {
+    drawTriangle(s.getTriangle()[0], s.getColor());
+    drawTriangle(s.getTriangle()[1], s.getColor());
+}
+
 void Canvas::clear(void) { std::fill(buffer.begin(), buffer.end(), cColor); }
 
 bool Canvas::isCoordsValid(int px, int py) {

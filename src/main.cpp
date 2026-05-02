@@ -30,11 +30,15 @@ int main(int argc, char* argv[]) {
 
     // 3. Define the Rectangle
     // Rectangle r1(0, 10, 1, 10, 10, 0xFF00FF00);
-    Point p1(1, 1, 2, 0xFF00FF00);
-    Point p2(-1, -1, 2, 0xFF00FF00);
+    Point p1(-1, 1, 2, 0xFF00FF00);
+    Point p2(1, 1, 2, 0xFF00FF00);
     Point p3(1, -1, 2, 0xFF00FF00);
+    Point p4(-1, -1, 2, 0xFF00FF00);
 
     Triangle t1(p1, p2, p3, 0xFF748FFC);
+    Triangle t2(p1, p3, p4, 0xFFfC0588);
+
+    Square s1(t1, t2, 0xFF00FF00);
 
     float step = 1;
     // --- Main Loop ---
@@ -51,10 +55,8 @@ int main(int argc, char* argv[]) {
         // Motion logic
 
         // Drawing Part
-        frame.drawPoint(p1);
-        frame.drawPoint(p2);
-        frame.drawPoint(p3);
-        frame.drawTriangle(t1);
+
+        frame.drawSquare(s1);
 
         // Push our memory buffer to the GPU to be displayed
         SDL_UpdateTexture(texture, NULL, frame.buffer.data(),

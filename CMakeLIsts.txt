@@ -14,7 +14,7 @@ add_executable(renderer
     src/Shapes/Point/Point.cpp
     src/Shapes/Triangle/Triangle.cpp
     src/Shapes/Line/Line.cpp
-
+    src/Shapes/Square/Square.cpp
 )
 
 target_link_libraries(renderer SDL2::SDL2)

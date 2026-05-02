@@ -19,10 +19,10 @@ class Canvas {
     void drawRectangle(Rectangle r);
 
     void drawPoint(Point p);
-
     void drawLine(Line l);
-
     void drawTriangle(Triangle t);
+    void drawTriangle(Triangle t, uint32_t color);
+    void drawSquare(Square s);
 
     bool isCoordsValid(int px, int py);
 
