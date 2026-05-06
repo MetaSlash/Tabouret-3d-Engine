@@ -1,4 +1,4 @@
-#include "Canvas.h"
+#include "Canvas.hpp"
 
 #include <math.h>
 
@@ -67,7 +67,8 @@ void Canvas::drawLine(Line l) {
     int sy = (p1Y < p2Y) ? 1 : -1;
     int err = dx + dy;
     while (true) {
-        points.push_back(pt(p1X, p1Y));
+        buffer[p1Y * cWidth + p1X] = l.getColor();
+
         if (p1X == p2X && p1Y == p2Y) break;
 
         int e2 = 2 * err;
@@ -80,29 +81,36 @@ void Canvas::drawLine(Line l) {
             p1Y += sy;
         }
     }
-
-    for (int i = 0; i < points.size(); i++) {
-        if (isCoordsValid(points.at(i).x, points.at(i).y)) {
-            buffer[points.at(i).y * cWidth + points.at(i).x] = l.getColor();
-        }
-    }
 }
 
 void Canvas::drawTriangle(Triangle t) {
-    drawLine(Line(t.getPoints()[0], t.getPoints()[1], t.getColor()));
-    drawLine(Line(t.getPoints()[1], t.getPoints()[2], t.getColor()));
-    drawLine(Line(t.getPoints()[2], t.getPoints()[0], t.getColor()));
+    for (size_t i = 0; i < 3; i++) {
+        drawLine(
+            Line(t.getPoints()[i], t.getPoints()[(i + 1) % 3], t.getColor()));
+    }
 }
 
 void Canvas::drawTriangle(Triangle t, uint32_t color) {
-    drawLine(Line(t.getPoints()[0], t.getPoints()[1], color));
-    drawLine(Line(t.getPoints()[1], t.getPoints()[2], color));
-    drawLine(Line(t.getPoints()[2], t.getPoints()[0], color));
+    for (size_t i = 0; i < 3; i++) {
+        drawLine(Line(t.getPoints()[i], t.getPoints()[(i + 1) % 3], color));
+    }
 }
 
 void Canvas::drawSquare(Square s) {
-    drawTriangle(s.getTriangle()[0], s.getColor());
-    drawTriangle(s.getTriangle()[1], s.getColor());
+    for (size_t i = 0; i < 2; i++) {
+        drawTriangle(s.getTriangle()[i], s.getColor());
+    }
+}
+void Canvas::drawSquare(Square s, uint32_t color) {
+    for (size_t i = 0; i < 2; i++) {
+        drawTriangle(s.getTriangle()[i], color);
+    }
+}
+
+void Canvas::drawCuboid(Cuboid c) {
+    for (size_t i = 0; i < 6; i++) {
+        drawSquare(c.getSquares()[i], c.getColor());
+    }
 }
 
 void Canvas::clear(void) { std::fill(buffer.begin(), buffer.end(), cColor); }

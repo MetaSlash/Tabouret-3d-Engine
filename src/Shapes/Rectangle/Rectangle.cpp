@@ -1,6 +1,6 @@
-#include "Rectangle.h"
+#include "Rectangle.hpp"
 
-#include "../../constants.h"
+#include "../../constants.hpp"
 
 // Constructor
 Rectangle::Rectangle(int x, int y, int h, int w, uint32_t color)

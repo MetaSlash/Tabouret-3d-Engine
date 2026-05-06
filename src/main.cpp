@@ -1,14 +1,19 @@
 #include <SDL.h>
+#include <signal.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 #include <chrono>
 #include <iostream>
 #include <thread>
 
-#include "./Canvas/Canvas.h"
-#include "constants.h"
+#include "./Canvas/Canvas.hpp"
+#include "constants.hpp"
 
-// TODO: Make a line Class to be able to draw the arrets of the cube
+void handler(int s) {
+    std::cout << "signal caught : " << s << std::endl;
+    exit(s);
+}
 
 int main(int argc, char* argv[]) {
     // 1. Initialize SDL and create a Window
@@ -29,16 +34,13 @@ int main(int argc, char* argv[]) {
     Canvas frame(WINDOW_WIDTH, WINDOW_HEIGHT, 0xFF000000);
 
     // 3. Define the Rectangle
-    // Rectangle r1(0, 10, 1, 10, 10, 0xFF00FF00);
-    Point p1(-1, 1, 2, 0xFF00FF00);
-    Point p2(1, 1, 2, 0xFF00FF00);
-    Point p3(1, -1, 2, 0xFF00FF00);
-    Point p4(-1, -1, 2, 0xFF00FF00);
+    std::vector<Cuboid> c;
 
-    Triangle t1(p1, p2, p3, 0xFF748FFC);
-    Triangle t2(p1, p3, p4, 0xFFfC0588);
-
-    Square s1(t1, t2, 0xFF00FF00);
+    c.push_back(Cuboid(-1, -1, 4, 0xFF0000FF));
+    c.push_back(Cuboid(1, -1, 4, 0xFFFF0000));
+    c.push_back(Cuboid(0, 0, 4, 0xFFFFFFFF));
+    c.push_back(Cuboid(0, 1, 4, 0xFFFFFFFF));
+    c.push_back(Cuboid(0, 2, 4, 0xFFFFFFFF));
 
     float step = 1;
     // --- Main Loop ---
@@ -52,11 +54,32 @@ int main(int argc, char* argv[]) {
         // Clear Screen
         frame.clear();
 
-        // Motion logic
-
         // Drawing Part
+        for (size_t i = 0; i < c.size(); i++) {
+            frame.drawCuboid(c.at(i));
+        }
 
-        frame.drawSquare(s1);
+        // Check for key presses
+        if (event.type == SDL_KEYDOWN) {
+            switch (event.key.keysym.sym) {
+                case SDLK_ESCAPE:
+                    running = false;  // Exit on Escape
+                    break;
+                case SDLK_z:
+                    for (size_t i = 0; i < c.size(); i++) {
+                        c.at(i).;
+                    }
+
+                    break;
+                case SDLK_s:
+                    player_jump();  // Specific action for Space
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        signal(SIGINT, handler);
 
         // Push our memory buffer to the GPU to be displayed
         SDL_UpdateTexture(texture, NULL, frame.buffer.data(),

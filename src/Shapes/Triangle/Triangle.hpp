@@ -1,4 +1,4 @@
-#include "../Point/Point.h"
+#include "../Point/Point.hpp"
 
 #ifndef TRIANGLE_H
 #define TRIANGLE_H

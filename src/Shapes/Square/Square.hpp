@@ -1,4 +1,4 @@
-#include "../Triangle/Triangle.h"
+#include "../Triangle/Triangle.hpp"
 
 #ifndef SQUARE_H
 #define SQUARE_H

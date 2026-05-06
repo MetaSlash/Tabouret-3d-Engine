@@ -1,4 +1,4 @@
-#include "Square.h"
+#include "./Square.hpp"
 
 #include <cstdlib>
 #include <iostream>

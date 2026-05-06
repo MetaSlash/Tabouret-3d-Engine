@@ -15,6 +15,8 @@ add_executable(renderer
     src/Shapes/Triangle/Triangle.cpp
     src/Shapes/Line/Line.cpp
     src/Shapes/Square/Square.cpp
+    src/Shapes/Cuboid/Cuboid.cpp
+    src/Shapes/Cuboid/McCuboid/McCuboid.cpp
 )
 
 target_link_libraries(renderer SDL2::SDL2)

@@ -1,4 +1,4 @@
-#include "Triangle.h"
+#include "Triangle.hpp"
 
 Triangle::Triangle() {
     color = 0xFFFFFFFF;

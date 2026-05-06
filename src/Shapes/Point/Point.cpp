@@ -1,6 +1,6 @@
-#include "Point.h"
+#include "Point.hpp"
 
-#include "../../constants.h"
+#include "../../constants.hpp"
 
 // Constructor
 Point::Point() {

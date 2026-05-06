@@ -1,6 +1,6 @@
 #include <cstdint>
 
-#include "../Point/Point.h"
+#include "../Point/Point.hpp"
 
 #ifndef LINE_H
 #define LINE_H

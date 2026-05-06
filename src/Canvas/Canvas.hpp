@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "../Shapes/Shapes.h"
+#include "../Shapes/Shapes.hpp"
 
 class Canvas {
   public:
@@ -23,6 +23,8 @@ class Canvas {
     void drawTriangle(Triangle t);
     void drawTriangle(Triangle t, uint32_t color);
     void drawSquare(Square s);
+    void drawSquare(Square s, uint32_t color);
+    void drawCuboid(Cuboid c);
 
     bool isCoordsValid(int px, int py);
 
