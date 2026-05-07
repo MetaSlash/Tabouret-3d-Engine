@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Point/Point.hpp
+ * Author : Tabouret
+ * Creation Date : 27/04/2026
+ */
+
 #include <cstdint>
 
 #ifndef POINT_H

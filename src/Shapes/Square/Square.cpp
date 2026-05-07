@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Square/Square.cpp
+ * Author : Tabouret
+ * Creation Date : 02/05/2026
+ */
+
 #include "./Square.hpp"
 
 #include <cstdlib>

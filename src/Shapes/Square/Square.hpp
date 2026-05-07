@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Square/Square.hpp
+ * Author : Tabouret
+ * Creation Date : 02/05/2026
+ */
+
 #include "../Triangle/Triangle.hpp"
 
 #ifndef SQUARE_H

@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Cuboid/Cuboid.cpp
+ * Author : Tabouret
+ * Creation Date : 03/05/2026
+ */
+
 #include "Cuboid.hpp"
 Cuboid::Cuboid() {
     color = 0xFFFFFFFF;

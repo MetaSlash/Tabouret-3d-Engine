@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Canvas.hpp
+ * Author : Tabouret
+ * Creation Date : 26/04/2026
+ */
+
 #ifndef CANVAS_H
 #define CANVAS_H
 

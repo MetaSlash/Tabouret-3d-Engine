@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Point/Point.cpp
+ * Author : Tabouret
+ * Creation Date : 27/04/2026
+ */
+
 #include "Point.hpp"
 
 #include "../../constants.hpp"

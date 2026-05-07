@@ -1,3 +1,9 @@
+/**
+ * Directory : src/main.cpp
+ * Author : Tabouret
+ * Creation Date : 26/04/2026
+ */
+
 #include <SDL.h>
 #include <signal.h>
 #include <stdlib.h>
@@ -10,10 +16,12 @@
 #include "./Canvas/Canvas.hpp"
 #include "constants.hpp"
 
-void handler(int s) {
-    std::cout << "signal caught : " << s << std::endl;
-    exit(s);
-}
+// TODO : Faire un system de déplacement (ZQSD), Cam orientation on
+//        verra plus tard
+
+// TODO : Module import .obj
+//        c'est pas si dure avec/ l'implementation actuel du moteur
+//        https://en.wikipedia.org/wiki/Wavefront_.obj_file
 
 int main(int argc, char* argv[]) {
     // 1. Initialize SDL and create a Window
@@ -51,6 +59,15 @@ int main(int argc, char* argv[]) {
             if (event.type == SDL_QUIT) running = false;
         }
 
+        // Check for key presses
+        if (event.type == SDL_KEYDOWN) {
+            if (event.key.keysym.sym = SDLK_z) {
+                std::cout << "z pressed";
+            }
+
+            std::cout << "Key : " << event.key.keysym.sym;
+        }
+
         // Clear Screen
         frame.clear();
 
@@ -58,28 +75,6 @@ int main(int argc, char* argv[]) {
         for (size_t i = 0; i < c.size(); i++) {
             frame.drawCuboid(c.at(i));
         }
-
-        // Check for key presses
-        if (event.type == SDL_KEYDOWN) {
-            switch (event.key.keysym.sym) {
-                case SDLK_ESCAPE:
-                    running = false;  // Exit on Escape
-                    break;
-                case SDLK_z:
-                    for (size_t i = 0; i < c.size(); i++) {
-                        c.at(i).;
-                    }
-
-                    break;
-                case SDLK_s:
-                    player_jump();  // Specific action for Space
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        signal(SIGINT, handler);
 
         // Push our memory buffer to the GPU to be displayed
         SDL_UpdateTexture(texture, NULL, frame.buffer.data(),

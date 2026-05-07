@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Rectangle/Rectangle.cpp
+ * Author : Tabouret
+ * Creation Date : 26/04/2026
+ */
+
 #include "Rectangle.hpp"
 
 #include "../../constants.hpp"

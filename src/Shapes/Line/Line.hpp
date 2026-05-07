@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Line/Line.hpp
+ * Author : Tabouret
+ * Creation Date : 02/05/2026
+ */
+
 #include <cstdint>
 
 #include "../Point/Point.hpp"

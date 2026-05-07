@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Canvas.cpp
+ * Author : Tabouret
+ * Creation Date : 26/04/2026
+ */
+
 #include "Canvas.hpp"
 
 #include <math.h>

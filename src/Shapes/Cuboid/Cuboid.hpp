@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Cuboid/Cuboid.hpp
+ * Author : Tabouret
+ * Creation Date : 03/05/2026
+ */
+
 #include "../Square/Square.hpp"
 
 class Cuboid {

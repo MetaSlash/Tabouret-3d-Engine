@@ -1,3 +1,9 @@
+/**
+ * Directory : src/constants.hpp
+ * Author : Tabouret
+ * Creation Date : 27/04/2026
+ */
+
 #ifndef CONSTANT_H
 #define CONSTANT_H
 

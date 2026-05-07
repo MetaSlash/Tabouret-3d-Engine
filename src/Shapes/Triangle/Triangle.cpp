@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Triangle/Triangle.cpp
+ * Author : Tabouret
+ * Creation Date : 02/05/2026
+ */
+
 #include "Triangle.hpp"
 
 Triangle::Triangle() {

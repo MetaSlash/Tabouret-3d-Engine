@@ -1,3 +1,9 @@
+/**
+ * Directory : src/Shapes/Triangle/Triangle.hpp
+ * Author : Tabouret
+ * Creation Date : 02/05/2026
+ */
+
 #include "../Point/Point.hpp"
 
 #ifndef TRIANGLE_H
