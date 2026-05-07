@@ -4,12 +4,14 @@
  * Creation Date : 03/05/2026
  */
 
+#include "../Point/Point.hpp"
 #include "../Square/Square.hpp"
 
 class Cuboid {
   private:
     Square square[6];
     uint32_t color;
+    Point point;
 
   public:
     // Constructors
@@ -33,4 +35,5 @@ class Cuboid {
     // Getters
     Square* getSquares();
     uint32_t getColor();
+    Point getPointCoords();
 };

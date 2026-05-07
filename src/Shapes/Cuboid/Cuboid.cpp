@@ -58,6 +58,9 @@ Cuboid::Cuboid(Point p1, Point p2, Point p3, Point p4, Point p5, Point p6,
 
 // This constructor assume that the cube have a size of 1
 Cuboid::Cuboid(int x, int y, int z) {
+    point.setWorldX(x);
+    point.setWorldY(y);
+    point.setWorldZ(z);
     color = 0xFFFFFFFF;
     Point p[8];
     p[1] = Point(-0.5 + x, 0.5 + y, -0.5 + z);
@@ -80,6 +83,9 @@ Cuboid::Cuboid(int x, int y, int z) {
 
 // This constructor assume that the cube have a size of 1
 Cuboid::Cuboid(int x, int y, int z, uint32_t color) {
+    point.setWorldX(x);
+    point.setWorldY(y);
+    point.setWorldZ(z);
     this->color = color;
     Point p[8];
     p[1] = Point(-0.5 + x, 0.5 + y, -0.5 + z);
@@ -101,6 +107,10 @@ Cuboid::Cuboid(int x, int y, int z, uint32_t color) {
 }
 
 void Cuboid::setIntCoords(int x, int y, int z) {
+    point.setWorldX((long)x);
+    point.setWorldY((long)y);
+    point.setWorldZ((long)z);
+
     Point p[8];
     p[1] = Point(-0.5 + x, 0.5 + y, -0.5 + z);
     p[2] = Point(0.5 + x, 0.5 + y, -0.5 + z);
@@ -122,3 +132,5 @@ void Cuboid::setIntCoords(int x, int y, int z) {
 
 Square* Cuboid::getSquares() { return square; }
 uint32_t Cuboid::getColor() { return color; }
+
+Point Cuboid::getPointCoords() { return point; }

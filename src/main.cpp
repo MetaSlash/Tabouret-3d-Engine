@@ -44,11 +44,11 @@ int main(int argc, char* argv[]) {
     // 3. Define the Rectangle
     std::vector<Cuboid> c;
 
-    c.push_back(Cuboid(-1, -1, 4, 0xFF0000FF));
-    c.push_back(Cuboid(1, -1, 4, 0xFFFF0000));
-    c.push_back(Cuboid(0, 0, 4, 0xFFFFFFFF));
-    c.push_back(Cuboid(0, 1, 4, 0xFFFFFFFF));
-    c.push_back(Cuboid(0, 2, 4, 0xFFFFFFFF));
+    c.push_back(Cuboid(-1, -1, 4, 0xFF0000FF));  // Boule gauche
+    c.push_back(Cuboid(1, -1, 4, 0xFFFF0000));   // Boule droite
+    c.push_back(Cuboid(0, 0, 4, 0xFFFFFFFF));    // BITE 1
+    c.push_back(Cuboid(0, 1, 4, 0xFFFFFFFF));    // BITE 2
+    c.push_back(Cuboid(0, 2, 4, 0xFFFFFFFF));    // BITE 3
 
     float step = 1;
     // --- Main Loop ---
@@ -57,16 +57,71 @@ int main(int argc, char* argv[]) {
     while (running) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = false;
+
+            if (event.type == SDL_KEYDOWN) {
+                // SDL Keycodes : https://sdl.elynx.fr/SDLKeycodeLookup/
+                switch (event.key.keysym.sym) {
+                    case SDLK_z:
+                        for (Cuboid& cub : c) {
+                            long x = cub.getPointCoords().getWorldX();
+                            long y = cub.getPointCoords().getWorldY();
+                            long z = cub.getPointCoords().getWorldZ() - 1;
+                            cub.setIntCoords(x, y, z);
+                        }
+                        break;
+
+                    case SDLK_s:
+                        for (Cuboid& cub : c) {
+                            long x = cub.getPointCoords().getWorldX();
+                            long y = cub.getPointCoords().getWorldY();
+                            long z = cub.getPointCoords().getWorldZ() + 1;
+                            cub.setIntCoords(x, y, z);
+                        }
+                        break;
+
+                    case SDLK_q:
+                        for (Cuboid& cub : c) {
+                            long x = cub.getPointCoords().getWorldX() + 1;
+                            long y = cub.getPointCoords().getWorldY();
+                            long z = cub.getPointCoords().getWorldZ();
+                            cub.setIntCoords(x, y, z);
+                        }
+                        break;
+
+                    case SDLK_d:
+                        for (Cuboid& cub : c) {
+                            long x = cub.getPointCoords().getWorldX() - 1;
+                            long y = cub.getPointCoords().getWorldY();
+                            long z = cub.getPointCoords().getWorldZ();
+                            cub.setIntCoords(x, y, z);
+                        }
+                        break;
+
+                    case SDLK_LSHIFT:
+                        for (Cuboid& cub : c) {
+                            long x = cub.getPointCoords().getWorldX() + 1;
+                            long y = cub.getPointCoords().getWorldY();
+                            long z = cub.getPointCoords().getWorldZ();
+                            cub.setIntCoords(x, y, z);
+                        }
+                        break;
+
+                    case SDLK_SPACE:
+                        for (Cuboid& cub : c) {
+                            long x = cub.getPointCoords().getWorldX() - 1;
+                            long y = cub.getPointCoords().getWorldY();
+                            long z = cub.getPointCoords().getWorldZ();
+                            cub.setIntCoords(x, y, z);
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
 
         // Check for key presses
-        if (event.type == SDL_KEYDOWN) {
-            if (event.key.keysym.sym = SDLK_z) {
-                std::cout << "z pressed";
-            }
-
-            std::cout << "Key : " << event.key.keysym.sym;
-        }
 
         // Clear Screen
         frame.clear();
