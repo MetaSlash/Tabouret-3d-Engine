@@ -10,21 +10,19 @@ A 3D software renderer implemented in C++ without external graphics libraries (u
 
 ## Dependencies
 
-- SDL2
 - C++17 compatible compiler
 - CMake (for building)
 
 ## Build Instructions
 
-1. Ensure SDL2 is installed on your system.
 2. Navigate to the project root directory.
 3. Run the following command:
 
 ```bash
 # To just build the project
-make
+make build
 
-# To build the project and run it
+# To run the project
 make run
 
 # To remove the build directory and be able to make a clean build
@@ -40,5 +38,4 @@ make clean
 
 ## Troubleshooting
 
-- If SDL2 is not found, install it via your package manager (e.g., `sudo apt install libsdl2-dev` on Ubuntu).
 - Ensure you have a C++17 compiler (GCC 7+, Clang 5+, or MSVC 2017+).
