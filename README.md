@@ -4,7 +4,6 @@ A 3D software renderer implemented in C++ without external graphics libraries (u
 
 ## Features
 
-- Software-based 3D rendering
 - Support for basic shapes: Points, Lines, Rectangles, Squares, Triangles, Cuboids
 - Real-time rendering with SDL2 display
 
