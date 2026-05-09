@@ -19,11 +19,11 @@ Point::Point() {
 }
 
 // DO NOT USE IN NORMAL CODE
-Point::Point(double newScreenX, double newScreenY) {
+Point::Point(double newScreenX, double newScreenY, uint32_t color) {
     screenX = newScreenX;
     screenY = newScreenY;
 
-    this->color = 0xFFFFFFFF;
+    this->color = color;
     worldX = 0;
     worldY = 0;
     worldZ = 0;

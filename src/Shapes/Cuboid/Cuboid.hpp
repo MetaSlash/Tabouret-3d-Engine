@@ -36,4 +36,7 @@ class Cuboid {
     Square* getSquares();
     uint32_t getColor();
     Point getPointCoords();
+
+    // debug
+    void showIntCoords();
 };

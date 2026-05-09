@@ -5,6 +5,9 @@
  */
 
 #include "Cuboid.hpp"
+
+#include <iostream>
+
 Cuboid::Cuboid() {
     color = 0xFFFFFFFF;
     square[0] = Square();
@@ -134,3 +137,9 @@ Square* Cuboid::getSquares() { return square; }
 uint32_t Cuboid::getColor() { return color; }
 
 Point Cuboid::getPointCoords() { return point; }
+
+void Cuboid::showIntCoords() {
+    std::cout << "x: " << this->getPointCoords().getWorldX()
+              << "  y: " << this->getPointCoords().getWorldY()
+              << "  z: " << this->getPointCoords().getWorldZ() << std::endl;
+}

@@ -22,7 +22,7 @@ class Point {
   public:
     // Constructors
     Point();
-    Point(double newScreenX, double newScreenY);
+    Point(double newScreenX, double newScreenY, uint32_t color);
     Point(double x, double y, double z);
     Point(double x, double y, double z, uint32_t color);
 

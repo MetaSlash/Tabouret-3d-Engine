@@ -44,11 +44,14 @@ int main(int argc, char* argv[]) {
     // 3. Define the Rectangle
     std::vector<Cuboid> c;
 
-    c.push_back(Cuboid(-1, -1, 4, 0xFF0000FF));  // Boule gauche
-    c.push_back(Cuboid(1, -1, 4, 0xFFFF0000));   // Boule droite
-    c.push_back(Cuboid(0, 0, 4, 0xFFFFFFFF));    // BITE 1
-    c.push_back(Cuboid(0, 1, 4, 0xFFFFFFFF));    // BITE 2
-    c.push_back(Cuboid(0, 2, 4, 0xFFFFFFFF));    // BITE 3
+    c.push_back(Cuboid(-1, 0, 3, 0xFF000091));
+    c.push_back(Cuboid(-1, 1, 3, 0xFF000091));
+
+    c.push_back(Cuboid(0, 0, 3, 0xFFFFFFFF));
+    c.push_back(Cuboid(0, 1, 3, 0xFFFFFFFF));
+
+    c.push_back(Cuboid(1, 0, 3, 0xFFE1000F));
+    c.push_back(Cuboid(1, 1, 3, 0xFFE1000F));
 
     float step = 1;
     // --- Main Loop ---
@@ -99,8 +102,8 @@ int main(int argc, char* argv[]) {
 
                     case SDLK_LSHIFT:
                         for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX() + 1;
-                            long y = cub.getPointCoords().getWorldY();
+                            long x = cub.getPointCoords().getWorldX();
+                            long y = cub.getPointCoords().getWorldY() + 1;
                             long z = cub.getPointCoords().getWorldZ();
                             cub.setIntCoords(x, y, z);
                         }
@@ -108,8 +111,8 @@ int main(int argc, char* argv[]) {
 
                     case SDLK_SPACE:
                         for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX() - 1;
-                            long y = cub.getPointCoords().getWorldY();
+                            long x = cub.getPointCoords().getWorldX();
+                            long y = cub.getPointCoords().getWorldY() - 1;
                             long z = cub.getPointCoords().getWorldZ();
                             cub.setIntCoords(x, y, z);
                         }

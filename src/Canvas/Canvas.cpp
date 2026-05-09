@@ -36,21 +36,28 @@ void Canvas::drawPoint(Point p) {
 void Canvas::drawLine(Line l) {
     /* Algo from
      * https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm#Algorithm
-    /*
-    plotLine(x0, y0, x1, y1)
-        dx = x1 - x0
-        dy = y1 - y0
-        D = 2*dy - dx
-        y = y0
 
-        for x from x0 to x1
-            plot(x, y)
-            if D > 0
-                y = y + 1
-                D = D + (2 * (dy - dx))
-            else
-                D = D + 2*dy
+    plotLine(x0, y0, x1, y1)
+        dx = abs(x1 - x0)
+        sx = x0 < x1 ? 1 : -1
+        dy = -abs(y1 - y0)
+        sy = y0 < y1 ? 1 : -1
+        error = dx + dy
+
+        while true
+            plot(x0, y0)
+            e2 = 2 * error
+            if e2 >= dy
+                if x0 == x1 break
+                error = error + dy
+                x0 = x0 + sx
             end if
+            if e2 <= dx
+                if y0 == y1 break
+                error = error + dx
+                y0 = y0 + sy
+            end if
+        end while
     */
     struct pt {
         int x;
@@ -73,7 +80,7 @@ void Canvas::drawLine(Line l) {
     int sy = (p1Y < p2Y) ? 1 : -1;
     int err = dx + dy;
     while (true) {
-        buffer[p1Y * cWidth + p1X] = l.getColor();
+        points.push_back(pt(p1X, p1Y));
 
         if (p1X == p2X && p1Y == p2Y) break;
 
@@ -86,6 +93,9 @@ void Canvas::drawLine(Line l) {
             err += dx;
             p1Y += sy;
         }
+    }
+    for (pt p : points) {
+        drawPoint(Point(p.x, p.y, l.getColor()));
     }
 }
 
