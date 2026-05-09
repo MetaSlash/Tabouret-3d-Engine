@@ -27,11 +27,6 @@ run:
 # 	@echo --- Running Project ---
 	@$(BINARY)
 
-br: build
-# 	@echo --- Running Project ---
-	@$(BINARY)
-
-
 # 'cmake -E rm -rf' is the universal 'delete folder' command
 clean:
 #  	@echo --- Cleaning Up ---

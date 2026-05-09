@@ -14,8 +14,8 @@ A 3D software renderer implemented in C++ without external graphics libraries (u
 
 ## Build Instructions
 
-2. Navigate to the project root directory.
-3. Run the following command:
+1. Navigate to the project root directory.
+2. Run the following command:
 
 ```bash
 # To just build the project
