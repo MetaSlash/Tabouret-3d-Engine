@@ -16,9 +16,6 @@
 #include "./Canvas/Canvas.hpp"
 #include "constants.hpp"
 
-// TODO : Faire un system de déplacement (ZQSD), Cam orientation on
-//        verra plus tard
-
 // TODO : Module import .obj
 //        c'est pas si dure avec/ l'implementation actuel du moteur
 //        https://en.wikipedia.org/wiki/Wavefront_.obj_file
@@ -42,16 +39,16 @@ int main(int argc, char* argv[]) {
     Canvas frame(WINDOW_WIDTH, WINDOW_HEIGHT, 0xFF000000);
 
     // 3. Define the Rectangle
-    std::vector<Cuboid> c;
+    std::vector<Shape*> s;
 
-    c.push_back(Cuboid(-1, 0, 3, 0xFF000091));
-    c.push_back(Cuboid(-1, 1, 3, 0xFF000091));
+    s.push_back(new Cuboid(-1, 0, 3, 0xFF000091));
+    s.push_back(new Cuboid(-1, 1, 3, 0xFF000091));
 
-    c.push_back(Cuboid(0, 0, 3, 0xFFFFFFFF));
-    c.push_back(Cuboid(0, 1, 3, 0xFFFFFFFF));
+    s.push_back(new Cuboid(0, 0, 3, 0xFFFFFFFF));
+    s.push_back(new Cuboid(0, 1, 3, 0xFFFFFFFF));
 
-    c.push_back(Cuboid(1, 0, 3, 0xFFE1000F));
-    c.push_back(Cuboid(1, 1, 3, 0xFFE1000F));
+    s.push_back(new Cuboid(1, 0, 3, 0xFFE1000F));
+    s.push_back(new Cuboid(1, 1, 3, 0xFFE1000F));
 
     float step = 1;
     // --- Main Loop ---
@@ -63,64 +60,7 @@ int main(int argc, char* argv[]) {
 
             if (event.type == SDL_KEYDOWN) {
                 // SDL Keycodes : https://sdl.elynx.fr/SDLKeycodeLookup/
-                switch (event.key.keysym.sym) {
-                    case SDLK_z:
-                        for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX();
-                            long y = cub.getPointCoords().getWorldY();
-                            long z = cub.getPointCoords().getWorldZ() - 1;
-                            cub.setIntCoords(x, y, z);
-                        }
-                        break;
-
-                    case SDLK_s:
-                        for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX();
-                            long y = cub.getPointCoords().getWorldY();
-                            long z = cub.getPointCoords().getWorldZ() + 1;
-                            cub.setIntCoords(x, y, z);
-                        }
-                        break;
-
-                    case SDLK_q:
-                        for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX() + 1;
-                            long y = cub.getPointCoords().getWorldY();
-                            long z = cub.getPointCoords().getWorldZ();
-                            cub.setIntCoords(x, y, z);
-                        }
-                        break;
-
-                    case SDLK_d:
-                        for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX() - 1;
-                            long y = cub.getPointCoords().getWorldY();
-                            long z = cub.getPointCoords().getWorldZ();
-                            cub.setIntCoords(x, y, z);
-                        }
-                        break;
-
-                    case SDLK_LSHIFT:
-                        for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX();
-                            long y = cub.getPointCoords().getWorldY() + 1;
-                            long z = cub.getPointCoords().getWorldZ();
-                            cub.setIntCoords(x, y, z);
-                        }
-                        break;
-
-                    case SDLK_SPACE:
-                        for (Cuboid& cub : c) {
-                            long x = cub.getPointCoords().getWorldX();
-                            long y = cub.getPointCoords().getWorldY() - 1;
-                            long z = cub.getPointCoords().getWorldZ();
-                            cub.setIntCoords(x, y, z);
-                        }
-                        break;
-
-                    default:
-                        break;
-                }
+                switch (event.key.keysym.sym) {}
             }
         }
 
@@ -130,8 +70,9 @@ int main(int argc, char* argv[]) {
         frame.clear();
 
         // Drawing Part
-        for (size_t i = 0; i < c.size(); i++) {
-            frame.drawCuboid(c.at(i));
+        for (size_t i = 0; i < s.size(); i++) {
+            Shape* foo = s.at(i);
+            frame.draw(foo);
         }
 
         // Push our memory buffer to the GPU to be displayed

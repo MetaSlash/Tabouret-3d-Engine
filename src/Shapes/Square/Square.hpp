@@ -4,15 +4,15 @@
  * Creation Date : 02/05/2026
  */
 
-#include "../Triangle/Triangle.hpp"
-
 #ifndef SQUARE_H
 #define SQUARE_H
 
-class Square {
+#include "../Shape/Shape.hpp"
+#include "../Triangle/Triangle.hpp"
+
+class Square : public Shape {
   private:
     Triangle triangle[2];
-    uint32_t color;
 
     bool squareValid(Triangle t1, Triangle t2);
     bool pointsEquale(Point p1, Point p2);
@@ -24,7 +24,8 @@ class Square {
     Square(Point p1, Point p2, Point p3, Point p4);
     Square(Point p1, Point p2, Point p3, Point p4, uint32_t color);
 
-    uint32_t getColor();
+    Type type() override;
+
     Triangle* getTriangle();
 };
 

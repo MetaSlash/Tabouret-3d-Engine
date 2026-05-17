@@ -9,6 +9,8 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "Square.hpp"
+
 // Constructors
 Square::Square() {
     color = 0xFFFFFFFF;
@@ -52,12 +54,11 @@ Square::Square(Point p1, Point p2, Point p3, Point p4, uint32_t color) {
     triangle[1] = Triangle(p1, p3, p4, color);
 }
 
-// Getter
+Type Square::type() { return Type::square; }  // Getter
+
 Triangle* Square::getTriangle() { return triangle; }
-uint32_t Square::getColor() { return color; }
 
 // Cool Methods
-
 bool Square::squareValid(Triangle t1, Triangle t2) {
     int count = 0;
     for (int i = 0; i < 3; i++) {

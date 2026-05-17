@@ -4,13 +4,18 @@
  * Creation Date : 03/05/2026
  */
 
+#ifndef CUBOID_H
+#define CUBOID_H
+
+#include <string>
+
+#include "../Shapes.hpp"
 #include "../Point/Point.hpp"
 #include "../Square/Square.hpp"
 
-class Cuboid {
+class Cuboid : public Shape {
   private:
     Square square[6];
-    uint32_t color;
     Point point;
 
   public:
@@ -34,9 +39,11 @@ class Cuboid {
 
     // Getters
     Square* getSquares();
-    uint32_t getColor();
     Point getPointCoords();
+    Type type() override;
 
     // debug
     void showIntCoords();
 };
+
+#endif  // CUBOID_H

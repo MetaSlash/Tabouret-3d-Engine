@@ -12,6 +12,16 @@
 #include "../Shapes/Shapes.hpp"
 
 class Canvas {
+  private:
+    void drawRectangle(Rectangle r);
+    void drawPoint(Point p);
+    void drawLine(Line l);
+    void drawTriangle(Triangle t);
+    void drawTriangle(Triangle t, uint32_t color);
+    void drawSquare(Square s);
+    void drawSquare(Square s, uint32_t color);
+    void drawCuboid(Cuboid c);
+
   public:
     std::vector<uint32_t> buffer;
     int cWidth;
@@ -22,15 +32,8 @@ class Canvas {
     Canvas(int w, int h, uint32_t c);
 
     // Draw Methods
-    void drawRectangle(Rectangle r);
 
-    void drawPoint(Point p);
-    void drawLine(Line l);
-    void drawTriangle(Triangle t);
-    void drawTriangle(Triangle t, uint32_t color);
-    void drawSquare(Square s);
-    void drawSquare(Square s, uint32_t color);
-    void drawCuboid(Cuboid c);
+    void draw(Shape* s);
 
     bool isCoordsValid(int px, int py);
 

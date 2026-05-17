@@ -4,18 +4,19 @@
  * Creation Date : 27/04/2026
  */
 
-#include <cstdint>
-
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-class Rectangle {
+#include <cstdint>
+
+#include "../Shapes.hpp"
+
+class Rectangle : public Shape {
   private:
     // Member variables
     int x, y;
     float xNorm, yNorm;
     int width, height;
-    uint32_t color;
 
     // Internal helper methods for coordinate conversion
     void deNormalizeX(void);
@@ -35,7 +36,7 @@ class Rectangle {
     float getYNorm(void) const;
     int getWidth(void) const;
     int getHeight(void) const;
-    uint32_t getColor(void) const;
+    Type type() override;
 
     // Setters
     void setX(int newX);
@@ -46,7 +47,6 @@ class Rectangle {
     void setNormCoords(float newX, float newY);
     void setWidth(int newWidth);
     void setHeight(int newHeight);
-    void setColor(uint32_t newColor);
 
     // 3D Projection method
     void set3dCoods(float newX, float newY, float newZ);

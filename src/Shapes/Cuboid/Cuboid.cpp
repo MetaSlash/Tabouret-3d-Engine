@@ -134,9 +134,10 @@ void Cuboid::setIntCoords(int x, int y, int z) {
 }
 
 Square* Cuboid::getSquares() { return square; }
-uint32_t Cuboid::getColor() { return color; }
 
 Point Cuboid::getPointCoords() { return point; }
+
+Type Cuboid::type() { return Type::cuboid; }
 
 void Cuboid::showIntCoords() {
     std::cout << "x: " << this->getPointCoords().getWorldX()

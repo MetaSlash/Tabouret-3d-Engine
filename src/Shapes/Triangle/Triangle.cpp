@@ -32,4 +32,5 @@ void Triangle::setP2(Point p) { point[1] = p; }
 void Triangle::setP3(Point p) { point[2] = p; }
 
 Point* Triangle::getPoints() { return point; }
-uint32_t Triangle::getColor() { return color; }
+
+Type Triangle::type() { return Type::triangle; }

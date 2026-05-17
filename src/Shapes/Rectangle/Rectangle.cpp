@@ -10,13 +10,15 @@
 
 // Constructor
 Rectangle::Rectangle(int x, int y, int h, int w, uint32_t color)
-    : height(h), width(w), color(color) {
+    : height(h), width(w) {
+    this->color = color;
     setX(x);
     setY(y);
 }
 
 Rectangle::Rectangle(int x, int y, int z, int h, int w, uint32_t color)
-    : height(h), width(w), color(color) {
+    : height(h), width(w) {
+    this->color = color;
     setX(x);
     setY(y);
     set3dCoods(x, y, z);
@@ -28,7 +30,8 @@ float Rectangle::getXNorm(void) const { return this->xNorm; }
 float Rectangle::getYNorm(void) const { return this->yNorm; }
 int Rectangle::getWidth(void) const { return this->width; }
 int Rectangle::getHeight(void) const { return this->height; }
-uint32_t Rectangle::getColor(void) const { return this->color; }
+
+Type Rectangle::type() { return Type::rectangle; }
 
 // Setters
 void Rectangle::setX(int newX) {
@@ -62,7 +65,6 @@ void Rectangle::setNormCoords(float newX, float newY) {
 
 void Rectangle::setWidth(int newWidth) { width = newWidth; }
 void Rectangle::setHeight(int newHeight) { height = newHeight; }
-void Rectangle::setColor(uint32_t newColor) { color = newColor; }
 
 // Cool Methods
 void Rectangle::deNormalizeX(void) { x = (xNorm + 1) / 2 * WINDOW_WIDTH; }

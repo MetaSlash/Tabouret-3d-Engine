@@ -25,7 +25,8 @@ Line::Line(Point p1, Point p2, uint32_t color) {
     this->color = color;  // Defalut color as white
 }
 
-uint32_t Line::getColor() { return color; }
+Type Line::type() { return Type::line; }
+
 Point* Line::getPoints() { return point; }
 
 void Line::setP1(Point p) { point[0] = p; }

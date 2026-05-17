@@ -4,14 +4,15 @@
  * Creation Date : 02/05/2026
  */
 
-#include "../Point/Point.hpp"
-
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-class Triangle {
+#include "../Point/Point.hpp"
+
+#include "../Shape/Shape.hpp"
+
+class Triangle : public Shape {
   private:
-    uint32_t color;
     Point point[3];
 
   public:
@@ -19,8 +20,9 @@ class Triangle {
     Triangle(Point p1, Point p2, Point p3);
     Triangle(Point p1, Point p2, Point p3, uint32_t color);
 
-    uint32_t getColor();
     Point* getPoints();
+
+    Type type() override;
 
     void setP1(Point p);
     void setP2(Point p);

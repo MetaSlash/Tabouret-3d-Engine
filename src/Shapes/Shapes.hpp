@@ -7,11 +7,12 @@
 #ifndef SHAPES_H
 #define SHAPES_H
 
-#include "./Cuboid/Cuboid.hpp"
-#include "./Line/Line.hpp"
-#include "./Point/Point.hpp"
+#include "./Shape/Shape.hpp"
 #include "./Rectangle/Rectangle.hpp"
-#include "./Square/Square.hpp"
+#include "./Point/Point.hpp"
+#include "./Line/Line.hpp"
 #include "./Triangle/Triangle.hpp"
+#include "./Square/Square.hpp"
+#include "./Cuboid/Cuboid.hpp"
 
 #endif  // SHAPES_H

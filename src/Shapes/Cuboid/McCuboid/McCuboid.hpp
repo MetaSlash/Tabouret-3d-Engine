@@ -4,6 +4,11 @@
  * Creation Date : 06/05/2026
  */
 
+#ifndef MCCUBOID_H
+#define MCCUBOID_H
+
+#include <string>
+
 #include "../Cuboid.hpp"
 
 class McCuboid : Cuboid {
@@ -13,4 +18,6 @@ class McCuboid : Cuboid {
   public:
     McCuboid();
     McCuboid(int x, int y, int z);
+    Type type() override;
 };
+#endif  // MCCUBOID_H

@@ -52,11 +52,11 @@ Point::Point(double x, double y, double z, uint32_t color) {
 int Point::getScreenX(void) const { return this->screenX; }
 int Point::getScreenY(void) const { return this->screenY; }
 
+Type Point::type() { return Type::point; }
+
 double Point::getWorldX(void) const { return this->worldX; }
 double Point::getWorldY(void) const { return this->worldY; }
 double Point::getWorldZ(void) const { return this->worldZ; }
-
-uint32_t Point::getColor(void) const { return this->color; }
 
 // Setters
 void Point::setWorldX(double newX) {
@@ -71,8 +71,6 @@ void Point::setWorldZ(double newZ) {
     worldZ = newZ;
     update3dCoods();
 }
-
-void Point::setColor(uint32_t newColor) { color = newColor; }
 
 // Datas has to be normalize (between 0 and 1)
 

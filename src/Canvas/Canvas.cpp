@@ -131,6 +131,37 @@ void Canvas::drawCuboid(Cuboid c) {
 
 void Canvas::clear(void) { std::fill(buffer.begin(), buffer.end(), cColor); }
 
+void Canvas::draw(Shape* s) {
+    switch (s->type()) {
+        case (Type::cuboid):
+            drawCuboid(*static_cast<Cuboid*>(s));
+            break;
+
+        case (Type::line):
+            drawLine(*static_cast<Line*>(s));
+            break;
+
+        case (Type::point):
+            drawPoint(*static_cast<Point*>(s));
+            break;
+
+        case (Type::rectangle):
+            drawRectangle(*static_cast<Rectangle*>(s));
+            break;
+
+        case (Type::square):
+            drawSquare(*static_cast<Square*>(s));
+            break;
+
+        case (Type::triangle):
+            drawTriangle(*static_cast<Triangle*>(s));
+            break;
+
+        default:
+            break;
+    }
+}
+
 bool Canvas::isCoordsValid(int px, int py) {
     return (px >= 0 && px < cWidth && py >= 0 && py < cHeight);
 }

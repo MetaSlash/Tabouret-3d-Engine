@@ -13,3 +13,5 @@ McCuboid::McCuboid() {
 }
 
 McCuboid::McCuboid(int x, int y, int z) {}
+
+Type McCuboid::type() { return Type::mcCuboid; }
