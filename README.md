@@ -1,4 +1,4 @@
-# TBE (TaBouret Engine)
+# T3E (Tabouret 3d Engine)
 
 A 3D software renderer implemented in C++ without external graphics libraries (using only SDL2 for windowing and display).
 
