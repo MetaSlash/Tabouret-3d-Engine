@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Rectangle/Rectangle.hpp
- * Author : Tabouret
- * Creation Date : 27/04/2026
+ * @file Rectangle.hpp
+ * @details src\Shapes\Rectangle\Rectangle.hpp
+ *
+ * @author Tabouret
+ * @date 27/04/2026
  */
 
 #ifndef RECTANGLE_H

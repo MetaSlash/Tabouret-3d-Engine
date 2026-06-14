@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Line/Line.hpp
- * Author : Tabouret
- * Creation Date : 02/05/2026
+ * @file Line.hpp
+ * @details src\Shapes\Line\Line.hpp
+ *
+ * @author Tabouret
+ * @date 02/05/2026
  */
 
 #ifndef LINE_H

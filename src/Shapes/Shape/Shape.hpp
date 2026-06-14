@@ -1,3 +1,11 @@
+/**
+ * @file Shape.hpp
+ * @details src\Shapes\Shape\Shape.hpp
+ *
+ * @author Tabouret
+ * @date 20/05/2026
+ */
+
 #ifndef SHAPE_H
 #define SHAPE_H
 

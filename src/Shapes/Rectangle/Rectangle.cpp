@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Rectangle/Rectangle.cpp
- * Author : Tabouret
- * Creation Date : 26/04/2026
+ * @file Rectangle.cpp
+ * @details src\Shapes\Rectangle\Rectangle.cpp
+ *
+ * @author Tabouret
+ * @date 26/04/2026
  */
 
 #include "Rectangle.hpp"

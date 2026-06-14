@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Square/Square.hpp
- * Author : Tabouret
- * Creation Date : 02/05/2026
+ * @file Square.hpp
+ * @details src\Shapes\Square\Square.hpp
+ *
+ * @author Tabouret
+ * @date 02/05/2026
  */
 
 #ifndef SQUARE_H

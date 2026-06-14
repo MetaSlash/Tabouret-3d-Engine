@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Square/Square.cpp
- * Author : Tabouret
- * Creation Date : 02/05/2026
+ * @file Square.cpp
+ * @details src\Shapes\Square\Square.cpp
+ *
+ * @author Tabouret
+ * @date 02/05/2026
  */
 
 #include "./Square.hpp"

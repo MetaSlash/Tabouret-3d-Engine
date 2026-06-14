@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Triangle/Triangle.cpp
- * Author : Tabouret
- * Creation Date : 02/05/2026
+ * @file Triangle.cpp
+ * @details src\Shapes\Triangle\Triangle.cpp
+ *
+ * @author Tabouret
+ * @date 02/05/2026
  */
 
 #include "Triangle.hpp"

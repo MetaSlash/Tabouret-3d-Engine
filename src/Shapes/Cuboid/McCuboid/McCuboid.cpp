@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Cuboid/McCuboid/McCuboid.cpp
- * Author : Tabouret
- * Creation Date : 06/05/2026
+ * @file McCuboid.cpp
+ * @details src\Shapes\Cuboid\McCuboid\McCuboid.cpp
+ *
+ * @author Tabouret
+ * @date 06/05/2026
  */
 
 #include "McCuboid.hpp"

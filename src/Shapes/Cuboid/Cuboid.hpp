@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Cuboid/Cuboid.hpp
- * Author : Tabouret
- * Creation Date : 03/05/2026
+ * @file Cuboid.hpp
+ * @details src\Shapes\Cuboid\Cuboid.hpp
+ *
+ * @author Tabouret
+ * @date 03/05/2026
  */
 
 #ifndef CUBOID_H

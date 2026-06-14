@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Point/Point.hpp
- * Author : Tabouret
- * Creation Date : 27/04/2026
+ * @file Point.hpp
+ * @details src\Shapes\Point\Point.hpp
+ *
+ * @author Tabouret
+ * @date 27/04/2026
  */
 
 #ifndef POINT_H

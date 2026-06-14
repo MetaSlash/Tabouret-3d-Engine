@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Cuboid/Cuboid.cpp
- * Author : Tabouret
- * Creation Date : 03/05/2026
+ * @file Cuboid.cpp
+ * @details src\Shapes\Cuboid\Cuboid.cpp
+ *
+ * @author Tabouret
+ * @date 03/05/2026
  */
 
 #include "Cuboid.hpp"
@@ -66,15 +68,15 @@ Cuboid::Cuboid(int x, int y, int z) {
     point.setWorldZ(z);
     color = 0xFFFFFFFF;
     Point p[8];
-    p[1] = Point(-0.5 + x, 0.5 + y, -0.5 + z);
-    p[2] = Point(0.5 + x, 0.5 + y, -0.5 + z);
-    p[3] = Point(0.5 + x, -0.5 + y, -0.5 + z);
-    p[4] = Point(-0.5 + x, -0.5 + y, -0.5 + z);
+    p[0] = Point(-0.5 + x, 0.5 + y, -0.5 + z);
+    p[1] = Point(0.5 + x, 0.5 + y, -0.5 + z);
+    p[2] = Point(0.5 + x, -0.5 + y, -0.5 + z);
+    p[3] = Point(-0.5 + x, -0.5 + y, -0.5 + z);
 
-    p[5] = Point(-0.5 + x, 0.5 + y, 0.5 + z);
-    p[6] = Point(0.5 + x, 0.5 + y, 0.5 + z);
-    p[7] = Point(0.5 + x, -0.5 + y, 0.5 + z);
-    p[8] = Point(-0.5 + x, -0.5 + y, 0.5 + z);
+    p[4] = Point(-0.5 + x, 0.5 + y, 0.5 + z);
+    p[5] = Point(0.5 + x, 0.5 + y, 0.5 + z);
+    p[6] = Point(0.5 + x, -0.5 + y, 0.5 + z);
+    p[7] = Point(-0.5 + x, -0.5 + y, 0.5 + z);
 
     square[0] = Square(p[1], p[2], p[3], p[4]);  // Front
     square[1] = Square(p[5], p[1], p[4], p[8]);  // Left

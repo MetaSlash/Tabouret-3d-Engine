@@ -1,7 +1,9 @@
 /**
- * Directory : src/Shapes/Point/Point.cpp
- * Author : Tabouret
- * Creation Date : 27/04/2026
+ * @file Point.cpp
+ * @details src\Shapes\Point\Point.cpp
+ *
+ * @author Tabouret
+ * @date 27/04/2026
  */
 
 #include "Point.hpp"
