@@ -11,7 +11,7 @@
 
 #include <cstdint>
 
-#include "../Shapes.hpp"
+#include "../Shape/Shape.hpp"
 
 class Rectangle : public Shape {
   private:

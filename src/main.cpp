@@ -1,7 +1,9 @@
 /**
- * Directory : src/main.cpp
- * Author : Tabouret
- * Creation Date : 26/04/2026
+ * @file main.cpp
+ * @details src\main.cpp
+ *
+ * @author Tabouret
+ * @date 26/04/2026
  */
 
 #include <SDL.h>
@@ -10,11 +12,13 @@
 #include <unistd.h>
 
 #include <chrono>
+#include <cmath>
 #include <iostream>
 #include <thread>
 
 #include "./Canvas/Canvas.hpp"
 #include "constants.hpp"
+#include "Parser/Parser.hpp"
 
 // TODO : Module import .obj
 //        c'est pas si dure avec/ l'implementation actuel du moteur
@@ -41,6 +45,17 @@ int main(int argc, char* argv[]) {
     // 3. Define the Rectangle
     std::vector<Shape*> s;
 
+    Parser parser;
+
+    if (argc == 2) {
+        parser.init(argv[1]);
+        std::vector<Shape*> parsed = parser.getShapes();
+        s.insert(s.end(), parsed.begin(), parsed.end());
+    }
+
+    Camera c(0.0, 0.0, -3.0);
+
+    /*
     s.push_back(new Cuboid(-1, 0, 3, 0xFF000091));
     s.push_back(new Cuboid(-1, 1, 3, 0xFF000091));
 
@@ -49,20 +64,53 @@ int main(int argc, char* argv[]) {
 
     s.push_back(new Cuboid(1, 0, 3, 0xFFE1000F));
     s.push_back(new Cuboid(1, 1, 3, 0xFFE1000F));
+    */
 
-    float step = 1;
+    const double moveSpeed = 0.05;
+    const double rotSpeed = 0.03;
+
     // --- Main Loop ---
     bool running = true;
     SDL_Event event;
     while (running) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = false;
-
-            if (event.type == SDL_KEYDOWN) {
-                // SDL Keycodes : https://sdl.elynx.fr/SDLKeycodeLookup/
-                switch (event.key.keysym.sym) {}
-            }
         }
+
+        // Camera controls (held keys, polled every frame)
+        const Uint8* keys = SDL_GetKeyboardState(NULL);
+
+        // Rotation
+        if (keys[SDL_SCANCODE_LEFT]) c.setYaw(c.yaw() - rotSpeed);
+        if (keys[SDL_SCANCODE_RIGHT]) c.setYaw(c.yaw() + rotSpeed);
+        if (keys[SDL_SCANCODE_UP]) c.setPitch(c.pitch() + rotSpeed);
+        if (keys[SDL_SCANCODE_DOWN]) c.setPitch(c.pitch() - rotSpeed);
+
+        // Clamp pitch to avoid gimbal flip
+        if (c.pitch() > 1.55) c.setPitch(1.55);
+        if (c.pitch() < -1.55) c.setPitch(-1.55);
+
+        // Translation (relative to camera orientation)
+        double fwdX = std::sin(c.yaw()) * moveSpeed;
+        double fwdZ = std::cos(c.yaw()) * moveSpeed;
+        if (keys[SDL_SCANCODE_Z]) {
+            c.setX(c.x() + fwdX);
+            c.setZ(c.z() + fwdZ);
+        }
+        if (keys[SDL_SCANCODE_S]) {
+            c.setX(c.x() - fwdX);
+            c.setZ(c.z() - fwdZ);
+        }
+        if (keys[SDL_SCANCODE_D]) {
+            c.setX(c.x() + fwdZ);
+            c.setZ(c.z() - fwdX);
+        }
+        if (keys[SDL_SCANCODE_Q]) {
+            c.setX(c.x() - fwdZ);
+            c.setZ(c.z() + fwdX);
+        }
+        if (keys[SDL_SCANCODE_SPACE]) c.setY(c.y() + moveSpeed);
+        if (keys[SDL_SCANCODE_LSHIFT]) c.setY(c.y() - moveSpeed);
 
         // Check for key presses
 
@@ -72,7 +120,7 @@ int main(int argc, char* argv[]) {
         // Drawing Part
         for (size_t i = 0; i < s.size(); i++) {
             Shape* foo = s.at(i);
-            frame.draw(foo);
+            frame.draw(foo, c);
         }
 
         // Push our memory buffer to the GPU to be displayed

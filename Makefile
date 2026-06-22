@@ -9,6 +9,8 @@ else
     GENERATOR = 
 endif
 
+TEST_FILE = Test/cube.obj
+
 BUILD_DIR = build
 BINARY = $(BUILD_DIR)/renderer$(EXT)
 
@@ -17,19 +19,23 @@ all: build
 
 # 'cmake -E make_directory' works on Windows, Mac, and Linux without error
 build:
-#  	@echo --- Building Project ---
+	@echo --- Building Project ---
 	@cmake -E make_directory $(BUILD_DIR)
 	@cmake -B $(BUILD_DIR) -S . $(GENERATOR)
 	@cmake --build $(BUILD_DIR)
 
 # Run the binary using a relative path that works across shells
 run: 
-# 	@echo --- Running Project ---
+	@echo --- Running Project ---
 	@$(BINARY)
+
+test: 
+	@echo --- Running Project ---
+	@$(BINARY) $(TEST_FILE)
 
 # 'cmake -E rm -rf' is the universal 'delete folder' command
 clean:
-#  	@echo --- Cleaning Up ---
+	@echo --- Cleaning Up ---
 	@cmake -E rm -rf $(BUILD_DIR)
 
 .PHONY: all build run clean

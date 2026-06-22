@@ -12,7 +12,7 @@
 #include <cstdint>
 
 #include "../Point/Point.hpp"
-#include "../Shapes.hpp"
+#include "../Shape/Shape.hpp"
 
 class Line : public Shape {
   private:

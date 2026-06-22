@@ -11,7 +11,7 @@
 
 #include <string>
 
-#include "../Shapes.hpp"
+#include "../Shape/Shape.hpp"
 #include "../Point/Point.hpp"
 #include "../Square/Square.hpp"
 

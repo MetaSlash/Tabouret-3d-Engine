@@ -24,6 +24,8 @@ add_executable(renderer
     src/Shapes/Square/Square.cpp
     src/Shapes/Cuboid/Cuboid.cpp
     src/Shapes/Cuboid/McCuboid/McCuboid.cpp
+    src/Parser/Parser.cpp
+    src/Camera/Camera.cpp
 )
 
 target_link_libraries(renderer PRIVATE SDL2::SDL2-static SDL2::SDL2main)

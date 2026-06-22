@@ -10,17 +10,20 @@
 #include <vector>
 
 #include "../Shapes/Shapes.hpp"
+#include "../Camera/Camera.hpp"
 
 class Canvas {
   private:
-    void drawRectangle(Rectangle r);
-    void drawPoint(Point p);
-    void drawLine(Line l);
-    void drawTriangle(Triangle t);
-    void drawTriangle(Triangle t, uint32_t color);
-    void drawSquare(Square s);
-    void drawSquare(Square s, uint32_t color);
-    void drawCuboid(Cuboid c);
+    bool project(Point p, Camera cam, int& outX, int& outY);
+
+    void drawRectangle(Rectangle r, Camera cam);
+    void drawPoint(Point p, Camera cam);
+    void drawLine(Line l, Camera cam);
+    void drawTriangle(Triangle t, Camera cam);
+    void drawTriangle(Triangle t, uint32_t color, Camera cam);
+    void drawSquare(Square s, Camera cam);
+    void drawSquare(Square s, uint32_t color, Camera cam);
+    void drawCuboid(Cuboid c, Camera cam);
 
   public:
     std::vector<uint32_t> buffer;
@@ -33,7 +36,7 @@ class Canvas {
 
     // Draw Methods
 
-    void draw(Shape* s);
+    void draw(Shape* s, Camera cam);
 
     bool isCoordsValid(int px, int py);
 
