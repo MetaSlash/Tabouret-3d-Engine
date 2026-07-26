@@ -7,6 +7,7 @@
 #ifndef CANVAS_H
 #define CANVAS_H
 
+#include <limits>
 #include <vector>
 
 #include "../Shapes/Shapes.hpp"
@@ -14,8 +15,12 @@
 
 class Canvas {
   private:
-    bool project(Point p, Camera cam, int& outX, int& outY);
+    std::vector<double> zBuffer;
 
+    bool project(Point p, Camera cam, int& outX, int& outY);
+    bool project(Point p, Camera cam, int& outX, int& outY, double& outZ);
+
+    void drawLineScreen(int x0, int y0, int x1, int y1, uint32_t color);
     void drawRectangle(Rectangle r, Camera cam);
     void drawPoint(Point p, Camera cam);
     void drawLine(Line l, Camera cam);
@@ -30,6 +35,7 @@ class Canvas {
     int cWidth;
     int cHeight;
     uint32_t cColor;
+    bool wireframe;
 
     // Constructor
     Canvas(int w, int h, uint32_t c);

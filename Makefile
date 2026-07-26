@@ -9,7 +9,7 @@ else
     GENERATOR = 
 endif
 
-TEST_FILE = Test/cube.obj
+TEST_FILE = Test/Monk.obj
 
 BUILD_DIR = build
 BINARY = $(BUILD_DIR)/renderer$(EXT)
@@ -27,9 +27,9 @@ build:
 # Run the binary using a relative path that works across shells
 run: 
 	@echo --- Running Project ---
-	@$(BINARY)
+	@$(BINARY) 
 
-test: 
+file: 
 	@echo --- Running Project ---
 	@$(BINARY) $(TEST_FILE)
 

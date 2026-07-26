@@ -14,4 +14,6 @@
 
 #define FPS 20
 
+#define WIREFRAME_DEFAULT true
+
 #endif  // CONSTANT_H

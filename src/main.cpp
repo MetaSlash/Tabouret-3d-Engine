@@ -75,6 +75,8 @@ int main(int argc, char* argv[]) {
     while (running) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = false;
+            if (event.type == SDL_KEYDOWN && event.key.keysym.scancode == SDL_SCANCODE_TAB)
+                frame.wireframe = !frame.wireframe;
         }
 
         // Camera controls (held keys, polled every frame)
